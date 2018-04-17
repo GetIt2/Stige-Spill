@@ -1,0 +1,6 @@
+﻿namespace Stigespill
+{
+    class BoardCell
+    {
+    }
+}
