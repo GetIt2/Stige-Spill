@@ -13,17 +13,32 @@ namespace Stigespill
         {
             var firstRow = GetFirstRow(size);
             Console.WriteLine(firstRow);
-            for (int i = 0; i < size - 1; i++)
+            for (int i = size - 1; i >= 1; i--)
             {
-                var wallRow = CreateWallRow(size);
+                var firstWallRow = CreateFirstWallRow(size, i);
+                var secondWallRow = CreateSecondWallRow(size);
                 var middleRow = CreateMiddleRow(size);
-                Console.WriteLine(wallRow);
+                Console.WriteLine(firstWallRow);
+                Console.WriteLine(secondWallRow);
                 Console.WriteLine(middleRow);
             }
-            Console.WriteLine(CreateWallRow(size));
+            Console.WriteLine(CreateFirstWallRow(size , 0));
+            Console.WriteLine(CreateSecondWallRow(size));
             var lastRow = CreateLastRow(size);
             Console.WriteLine(lastRow);
 
+        }
+
+        private static string CreateSecondWallRow(int size)
+        {
+            string wallRow = null;
+            for (int wallIndex = 0; wallIndex < size; wallIndex++)
+            {
+                wallRow += $"│      ";
+            }
+
+            wallRow += "│";
+            return wallRow;
         }
 
         private static string CreateLastRow(int size)
@@ -31,10 +46,10 @@ namespace Stigespill
             var lastRow = "└";
             for (int i = 0; i < size - 1; i++)
             {
-                lastRow += "───┴";
+                lastRow += "──────┴";
             }
 
-            lastRow += "───┘";
+            lastRow += "──────┘";
             return lastRow;
         }
 
@@ -43,19 +58,29 @@ namespace Stigespill
             var middleRow = "├";
             for (int middleIndex = 0; middleIndex < size - 1; middleIndex++)
             {
-                middleRow += "───┼";
+                middleRow += "──────┼";
             }
 
-            middleRow += "───┤";
+            middleRow += "──────┤";
             return middleRow;
         }
 
-        private static string CreateWallRow(int size)
+        private static string CreateFirstWallRow(int size, int i)
         {
             string wallRow = null;
-            for (int wallIndex = 0; wallIndex < size; wallIndex++)
+            if (i % 2 == 0)
             {
-                wallRow += "│   ";
+                for (int wallIndex = 0; wallIndex < size; wallIndex++)
+                {
+                    wallRow += $"│    {i}{wallIndex}";
+                }
+            }
+            else
+            {
+                for (int wallIndex = size - 1; wallIndex >= 0; wallIndex--)
+                {
+                    wallRow += $"│    {i}{wallIndex}";
+                }
             }
 
             wallRow += "│";
@@ -67,10 +92,10 @@ namespace Stigespill
             var firstRow = "┌";
             for (int i = 0; i < size - 1; i++)
             {
-                firstRow += "───┬";
+                firstRow += "──────┬";
             }
 
-            firstRow += "───┐";
+            firstRow += "──────┐";
             return firstRow;
         }
     }
