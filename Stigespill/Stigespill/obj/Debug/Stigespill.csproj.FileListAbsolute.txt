@@ -5,3 +5,10 @@ C:\Users\GET Academy\Documents\GetIT Oppgaver\Stigespill\Stigespill\obj\Debug\St
 C:\Users\GET Academy\Documents\GetIT Oppgaver\Stigespill\Stigespill\obj\Debug\Stigespill.csproj.CoreCompileInputs.cache
 C:\Users\GET Academy\Documents\GetIT Oppgaver\Stigespill\Stigespill\obj\Debug\Stigespill.exe
 C:\Users\GET Academy\Documents\GetIT Oppgaver\Stigespill\Stigespill\obj\Debug\Stigespill.pdb
+C:\Users\Get Academy\source\repos\Get IT\Stigespill\Stigespill\bin\Debug\Stigespill.exe.config
+C:\Users\Get Academy\source\repos\Get IT\Stigespill\Stigespill\bin\Debug\Stigespill.exe
+C:\Users\Get Academy\source\repos\Get IT\Stigespill\Stigespill\bin\Debug\Stigespill.pdb
+C:\Users\Get Academy\source\repos\Get IT\Stigespill\Stigespill\obj\Debug\Stigespill.csprojResolveAssemblyReference.cache
+C:\Users\Get Academy\source\repos\Get IT\Stigespill\Stigespill\obj\Debug\Stigespill.csproj.CoreCompileInputs.cache
+C:\Users\Get Academy\source\repos\Get IT\Stigespill\Stigespill\obj\Debug\Stigespill.exe
+C:\Users\Get Academy\source\repos\Get IT\Stigespill\Stigespill\obj\Debug\Stigespill.pdb

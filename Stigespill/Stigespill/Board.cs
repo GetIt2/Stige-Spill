@@ -5,7 +5,7 @@ namespace Stigespill
 {
     class Board
     {
-        private BoardCell[] _cells; 
+        private static BoardCell[] _cells;
         private const int Size = 10;
         public Board()
         {
@@ -23,20 +23,20 @@ namespace Stigespill
             Console.WriteLine(firstRow);
             for (int i = Size - 1; i >= 1; i--)
             {
-                var firstWallRow = CreateFirstWallRow( i);
-                var secondWallRow = CreateSecondWallRow();
+                var firstWallRow = CreateFirstWallRow(i);
+                var secondWallRow = CreateSecondWallRow(i);
                 var middleRow = CreateMiddleRow();
                 Console.WriteLine(firstWallRow);
                 Console.WriteLine(secondWallRow);
                 Console.WriteLine(middleRow);
             }
             Console.WriteLine(CreateFirstWallRow(0));
-            Console.WriteLine(CreateSecondWallRow());
+            Console.WriteLine(CreateSecondWallRow(0));
             var lastRow = CreateLastRow();
             Console.WriteLine(lastRow);
 
         }
-        
+
         private static string CreateLastRow()
         {
             var lastRow = "└";
@@ -61,7 +61,7 @@ namespace Stigespill
             return middleRow;
         }
 
-        private static string CreateFirstWallRow( int i)
+        private static string CreateFirstWallRow(int i)
         {
             string wallRow = null;
             if (i % 2 == 0)
@@ -85,17 +85,30 @@ namespace Stigespill
             return wallRow;
         }
 
-        private static string CreateSecondWallRow()
+        private static string CreateSecondWallRow(int i)
         {
             string wallRow = null;
-            for (int wallIndex = 0; wallIndex < Size; wallIndex++)
+            if (i % 2 == 0)
             {
-                wallRow += $"│      ";
+                for (int wallIndex = 0; wallIndex < Size; wallIndex++)
+                {
+                    int cellIndex = Convert.ToInt32(i.ToString() + wallIndex.ToString());
+                    wallRow += $"│ {_cells[cellIndex].CheckContent(1, cellIndex)}{_cells[cellIndex].CheckContent(2, cellIndex)}{_cells[cellIndex].CheckContent(3, cellIndex)}{_cells[cellIndex].CheckContent(4, cellIndex)} ";
+                }
+            }
+            else
+            {
+                for (int wallIndex = Size - 1; wallIndex >= 0; wallIndex--)
+                {
+                    int cellIndex = Convert.ToInt32(i.ToString() + wallIndex.ToString());
+                    wallRow += $"│ {_cells[cellIndex].CheckContent(1, cellIndex)}{_cells[cellIndex].CheckContent(2, cellIndex)}{_cells[cellIndex].CheckContent(3, cellIndex)}{_cells[cellIndex].CheckContent(4, cellIndex)} ";
+                }
             }
 
             wallRow += "│";
             return wallRow;
         }
+
 
         private static string GetFirstRow()
         {
@@ -107,6 +120,11 @@ namespace Stigespill
 
             firstRow += "──────┐";
             return firstRow;
+        }
+
+        public void MovePlayer(int i, int move)
+        {
+            
         }
     }
 }
