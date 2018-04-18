@@ -4,8 +4,7 @@
     {
         static void Main(string[] args)
         {
-            var size = 10;
-            var board = new Board(size);
+            var board = new Board();
         }
     }
 }
